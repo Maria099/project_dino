@@ -30,7 +30,6 @@ class Dinosaur():
     y_pos =310
     y_pos_duck =340 #координаты динозавра когда он ныряет
     JUMP_VEL =8.5 #скорость динозавра когда он оторвется от земли для прыжка
-
     def __init__(self): #мы добавляем динозавра каждый раз когда создаётся объект этого класса
         self.duck_img = DUCKING #включаем все изображения динозавра
         self.run_img = RUNNING
@@ -193,6 +192,8 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
 
+
+
         SCREEN.fill((255, 255, 255))#каждый раз когда цикл while исполняется экран заполняется белым цветом
         userInput = pygame.key.get_pressed() #добавили переменную пользовательского ввода
 
@@ -247,9 +248,10 @@ def menu(death_count):
         pygame.display.update() #обновляем дисплей
         for event in pygame.event.get(): #добавляем опцию безопасного выхода из игры
             if event.type == pygame.QUIT:
-                run = False
+                exit()
             if event.type == pygame.KEYDOWN: #делаем так чтобы игрок при сталкновении с препятствием смог перезапустить игру
                 main()
+
 
 
 menu(death_count=0)
